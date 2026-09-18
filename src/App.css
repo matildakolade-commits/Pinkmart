@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #fffafc;
+  color: #292329;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  height: 78px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 250, 252, 0.96);
+  border-bottom: 1px solid #f1e7ec;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #d65382;
+}
+
+.nav-links {
+  display: flex;
+  gap: 38px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #625961;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-links a:first-child {
+  color: #d65382;
+}
+
+.profile-button {
+  border: none;
+  background: #f8e6ee;
+  color: #d65382;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 530px;
+  padding: 100px 7%;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 80% 20%, #fce8f0 0, transparent 30%),
+    radial-gradient(circle at 15% 70%, #f7e9f4 0, transparent 28%),
+    #fffafc;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.eyebrow,
+.small-title {
+  color: #d65382;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(55px, 7vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -3px;
+  margin-bottom: 28px;
+}
+
+.hero h1 span {
+  color: #d65382;
+}
+
+.hero-text {
+  max-width: 600px;
+  color: #766d75;
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+.search-bar {
+  width: min(620px, 100%);
+  height: 60px;
+  background: white;
+  border: 1px solid #eadfe5;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 10px 30px rgba(120, 70, 95, 0.08);
+}
+
+.search-bar span {
+  font-size: 25px;
+  color: #a79ba3;
+  margin-right: 12px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  font-family: inherit;
+  color: #292329;
+}
+
+/* SECTIONS */
+
+.categories,
+.featured {
+  padding: 80px 7%;
+}
+
+.featured {
+  background: white;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.section-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+}
+
+.view-all {
+  border: none;
+  background: none;
+  color: #d65382;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* CATEGORIES */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.category-card {
+  padding: 28px;
+  min-height: 155px;
+  border-radius: 20px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+}
+
+.category-icon {
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.category-card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.category-card p {
+  color: #776e75;
+  font-size: 13px;
+}
+
+.hair {
+  background: #f9e5ed;
+}
+
+.nails {
+  background: #eee5f5;
+}
+
+.clothing {
+  background: #f8eddf;
+}
+
+.beauty {
+  background: #e6f1ed;
+}
+
+.food {
+  background: #f8e8dc;
+}
+
+.services {
+  background: #e7edf7;
+}
+
+/* BUSINESS CARDS */
+
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.business-card {
+  background: #fffafc;
+  border: 1px solid #eee5e9;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.business-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(80, 40, 60, 0.1);
+}
+
+.business-image {
+  height: 220px;
+  display: flex;
+  align-items: end;
+  padding: 18px;
+}
+
+.business-image span {
+  background: white;
+  padding: 7px 11px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hair-image {
+  background: linear-gradient(135deg, #d99bad, #765261);
+}
+
+.nail-image {
+  background: linear-gradient(135deg, #d7b7d9, #8e698f);
+}
+
+.clothing-image {
+  background: linear-gradient(135deg, #d6b99c, #765b4a);
+}
+
+.business-info {
+  padding: 20px;
+}
+
+.business-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.business-top h3 {
+  font-size: 17px;
+}
+
+.business-top span {
+  color: #d65382;
+  font-size: 20px;
+}
+
+.business-info p {
+  color: #776e75;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.business-details {
+  display: flex;
+  gap: 10px;
+  color: #8b8088;
+  font-size: 12px;
+}
+
+.business-details span:first-child {
+  color: #d65382;
+  font-weight: 600;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding: 70px 6%;
+  }
+
+  .categories,
+  .featured {
+    padding: 60px 6%;
+  }
+
+  .category-grid,
+  .business-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+}
