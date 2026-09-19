@@ -87,10 +87,44 @@ button {
 }
 
 .logo {
+  position: relative;
+  display: inline-block;
+  color: #e83d82;
   font-size: 30px;
   font-weight: 800;
   letter-spacing: -1.5px;
-  color: #e83d82;
+}
+
+.logo-suitcase {
+  position: absolute;
+  width: 7px;
+  height: 6px;
+  background: #e83d82;
+  border-radius: 1.5px;
+  left: 83px;
+  top: -2px;
+}
+
+.logo-suitcase::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 3px;
+  border: 1px solid #e83d82;
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+  left: 1px;
+  top: -3px;
+}
+
+.logo-suitcase::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 6px;
+  background: white;
+  left: 3px;
+  top: 0;
 }
 
 .welcome-nav-text {
