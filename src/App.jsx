@@ -152,6 +152,16 @@ function App() {
   ]);
 
   // =========================
+  // SERVICE SWAPS
+  // =========================
+
+  const serviceSwaps = [
+    { id: 1, business: "Braids by Tolu", service: "Knotless Braids", lookingFor: "Nail Services", category: "Hair & Beauty", icon: "💇🏾‍♀️" },
+    { id: 2, business: "Nailed It ATL", service: "Gel Manicure", lookingFor: "Hair Services", category: "Nails", icon: "💅🏾" },
+    { id: 3, business: "Melanin Closet", service: "Outfit Styling", lookingFor: "Beauty Services", category: "Clothing", icon: "👗" },
+  ];
+
+  // =========================
   // ONBOARDING
   // =========================
 
@@ -216,6 +226,12 @@ function App() {
 
     event.target.reset();
     setShowBusinessForm(false);
+  };
+
+  const handleSwapRequest = (swap) => {
+    setSwapRequests((currentRequests) => [...currentRequests, swap.id]);
+    setSwapMessage(`Swap request sent to ${swap.business}!`);
+    setTimeout(() => setSwapMessage(""), 3000);
   };
 
   // =========================
@@ -294,6 +310,14 @@ function App() {
             </button>
 
             <button
+              className={businessTab === "swaps" ? "active" : ""}
+              onClick={() => setBusinessTab("swaps")}
+            >
+              <span>↔</span>
+              Service Swaps
+            </button>
+
+            <button
               className={
                 businessTab === "profile" ? "active" : ""
               }
@@ -331,12 +355,16 @@ function App() {
                   ? "Your portfolio"
                   : businessTab === "reviews"
                   ? "Customer reviews"
+                  : businessTab === "swaps"
+                  ? "Service swaps"
                   : "Business profile"}
               </h1>
 
               <p>
                 {businessTab === "dashboard"
                   ? "Here's what's happening with your business."
+                  : businessTab === "swaps"
+                  ? "Exchange your services with other campus businesses."
                   : `Manage your ${businessTab} on Pinkmart.`}
               </p>
             </div>
@@ -638,6 +666,15 @@ function App() {
                     </div>
                     →
                   </button>
+
+                  <button onClick={() => setBusinessTab("swaps")}>
+                    <span>↔</span>
+                    <div>
+                      <strong>Find a service swap</strong>
+                      <small>Trade services with another business</small>
+                    </div>
+                    →
+                  </button>
                 </div>
               </section>
             </>
@@ -869,6 +906,62 @@ function App() {
                   "Tolu did such an amazing job. I will
                   definitely be booking again."
                 </p>
+              </div>
+            </section>
+          )}
+
+          {businessTab === "swaps" && (
+            <section className="full-dashboard-panel service-swaps-panel">
+              <div className="panel-header">
+                <div>
+                  <p className="panel-label">CAMPUS COLLABORATION</p>
+                  <h2>Service Swaps</h2>
+                </div>
+                <div className="swap-balance"><span>↔</span><strong>Trade, don't pay</strong></div>
+              </div>
+
+              <div className="swap-intro-card">
+                <div className="swap-intro-icon">🤝</div>
+                <div>
+                  <h3>Exchange your skills with other businesses.</h3>
+                  <p>Offer one of your services in exchange for a service you need. It's a simple way for campus entrepreneurs to collaborate without paying upfront.</p>
+                </div>
+              </div>
+
+              {swapMessage && <div className="swap-success-message">✓ {swapMessage}</div>}
+
+              <div className="swap-section-heading">
+                <div><p className="panel-label">AVAILABLE NOW</p><h3>Businesses looking to swap</h3></div>
+                <span>{serviceSwaps.length} opportunities</span>
+              </div>
+
+              <div className="service-swap-grid">
+                {serviceSwaps.map((swap) => {
+                  const requested = swapRequests.includes(swap.id);
+                  return (
+                    <div className="service-swap-card" key={swap.id}>
+                      <div className="swap-card-top"><div className="swap-business-icon">{swap.icon}</div><span className="swap-category">{swap.category}</span></div>
+                      <h3>{swap.business}</h3>
+                      <div className="swap-service-row">
+                        <div><span>OFFERING</span><strong>{swap.service}</strong></div>
+                        <div className="swap-arrow">↔</div>
+                        <div><span>LOOKING FOR</span><strong>{swap.lookingFor}</strong></div>
+                      </div>
+                      <button className={requested ? "swap-request-button requested" : "swap-request-button"} onClick={() => !requested && handleSwapRequest(swap)} disabled={requested}>
+                        {requested ? "Request Sent ✓" : "Request Swap →"}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="swap-how-it-works">
+                <p className="panel-label">HOW IT WORKS</p>
+                <div className="swap-steps">
+                  <div><span>1</span><strong>Find a match</strong><small>Choose a business with a service you need.</small></div>
+                  <div><span>2</span><strong>Send a request</strong><small>Offer one of your own services in return.</small></div>
+                  <div><span>3</span><strong>Exchange</strong><small>Agree on the details and complete the swap.</small></div>
+                </div>
               </div>
             </section>
           )}
