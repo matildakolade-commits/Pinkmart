@@ -25,6 +25,8 @@ function App() {
   // =========================
 
   const [businessTab, setBusinessTab] = useState("dashboard");
+  const [swapRequests, setSwapRequests] = useState([]);
+  const [swapMessage, setSwapMessage] = useState("");
 
   const [businessProfile, setBusinessProfile] = useState({
     name: "Braids by Tolu",
