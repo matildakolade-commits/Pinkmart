@@ -1,4 +1,4 @@
- html {
+html {
   scroll-behavior: smooth;
 }
 
@@ -8,6 +8,8 @@ body {
 }
 
 button,
-input {
+input,
+textarea,
+select {
   font: inherit;
 }
