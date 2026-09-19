@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import ChatBox from "./ChatBox";
 
 function App() {
   // =========================
@@ -1880,6 +1881,7 @@ function App() {
           </div>
         </div>
       )}
+      <ChatBox />
     </div>
   );
 }
